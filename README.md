@@ -1,1 +1,3 @@
-# android-dev-workshop
+# Android Development with Jetpack Compose Camp
+
+

@@ -20,7 +20,8 @@ Welcome to the Android Development with Jetpack Compose Camp! 🌟 This camp is 
 - **Navigation:** Essential principles of project navigation were covered to ensure a smooth and intuitive user experience. Understanding how users interact with the application was a key focus.
 
 ## Takeaways 🌟
-This 2-Day Android Development using Jetpack Compose Camp equipped participants with the necessary skills to create dynamic and well-connected applications. The integration of Firebase for backend support, coupled with enhanced UI and navigation, set the foundation for robust and user-centric projects.
+This 2-Day Android Development using Jetpack Compose Camp equipped participants with the necessary skills to create dynamic and well-connected applications. The integration of Firebase for backend support, coupled with enhanced UI and navigation, set the foundation for robust and user-centric projects. ⭐️🛠️📱
+
 
 
 ## Resources 📖

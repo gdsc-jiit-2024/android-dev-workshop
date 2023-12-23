@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "862223341277",
+    "project_id": "gdscapp-7d36f",
+    "storage_bucket": "gdscapp-7d36f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862223341277:android:c050878b46d6821167ed34",
+        "android_client_info": {
+          "package_name": "com.example.gdsc_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArC9WvyRVWqqJaJn6F1bxSD0lVXAYUsYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,24 +8,33 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.gdsc_app.ui.theme.AppNavigation
 import com.example.gdsc_app.ui.theme.Gdsc_appTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,12 +42,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Gdsc_appTheme {
+
+                val navController = rememberNavController()
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+
+                      AppNavigation(navController)
                 }
             }
         }
@@ -53,127 +65,253 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
+
 @Composable
-fun SplashScreen1(modifier: Modifier = Modifier){
-
-    // load the image into a variable
-    val image1 = painterResource(id = R.drawable.splash1)
-
+fun SplashScreen1(navController: NavHostController, modifier: Modifier = Modifier) {
+    val image = painterResource(R.drawable.splash1)
     Box(
-        // Box to encompass everything
         modifier = modifier
             .fillMaxSize()
-            .background(Color.Black)
-    ){
-        Column (
+            .background(Color.Black) // Set the background color here
+    ) {
 
-            // We have used Column widget to wrap the Texts
-            // so we can modify its size and position
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
+        Column(
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-
-            // Text Widget to show Text
             Text(
                 text = "Buzz",
+                fontFamily = FontFamily.Default,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 126.sp,
                 color = Color.White,
-                fontSize = 120.sp,
-                fontWeight = FontWeight.Bold
+                modifier = Modifier
+                    .padding(22.dp)
             )
 
-
-            // Text Widget to show Text
             Text(
-                text = "Find people you vibe with!",
+                text = "  Find People you Vibe With!",
                 color = Color.White,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.SemiBold
+                fontSize = 25.sp,
+                modifier = Modifier.padding(2.dp)
             )
         }
 
-
-            // Image widget to display Image
         Image(
-            painter = image1,
+            painter = image,
             contentDescription = null,
-
-            // Modifying the size of Image and position
             modifier = Modifier
                 .fillMaxWidth()
                 .height(400.dp)
-                .align(Alignment.BottomCenter)
+                .align(Alignment.BottomCenter) // Fill the entire screen width
+        )
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Button(
+                onClick = {
+                    // Handle button click
+                    navController.navigate("splashScreen2")
+                },
+                modifier = Modifier
+                    .padding(8.dp)
+                    .height(50.dp)
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(18.dp),
+                colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
+
+
+            ) {
+                Text(
+                    text = "Get Started Now!",
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight.W500,
+                    fontSize = 24.sp,
+//                    color = Color.Black
+                )
+            }
+        }
+    }
+}
+
+// splash screen 2
+@Composable
+fun SplashScreen2(navController: NavHostController,modifier: Modifier = Modifier){
+    val image = painterResource(R.drawable.splash2)
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.Black) // Set the background color here
+    ) {
+        Image(
+            painter = image,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(500.dp)
+                .align(alignment = Alignment.TopCenter)
+        )
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Column (
+                verticalArrangement = Arrangement.Bottom,
+                horizontalAlignment = Alignment.Start
+            ){
+                Text(
+                    text = "Join Buzz",
+                    fontFamily = FontFamily.Default,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 55.sp,
+                    color = Color.White,
+                )
+
+                Text(
+                    text = "Today!",
+                    fontFamily = FontFamily.Default,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 55.sp,
+                    color = Color.White,
+
+                    )
+
+                Spacer(modifier = Modifier.height(25.dp))
+
+                Text(
+                    text = "A GenZ Social!",
+                    fontFamily = FontFamily.Default,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 35.sp,
+                    color = Color.White,
+
+                    )
+
+
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Button(
+                onClick = {
+//                    // Handle button click
+                        navController.navigate("screen3")
+                },
+                modifier = Modifier
+                    .padding(8.dp)
+                    .height(50.dp)
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp)
+            ) {
+                Text(
+                    text = "Find your Vibe!",
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight.W500,
+                    fontSize = 24.sp,
+                )
+            }
+        }
+    }
+}
+
+// splash screen 3
+@Composable
+fun SplashScreen3(navController: NavHostController, modifier: Modifier = Modifier) {
+    val image = painterResource(id = R.drawable.splash3)
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color.Black) // Set the background color here
+    ) {
+
+        Image(
+            painter = image,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(400.dp)
+                .align(alignment = Alignment.TopStart)
+
         )
 
 
-
         Column (
-            // We have used Column widget to wrap the button
-            // so we can modify its size and position
-            // Modifying the size and positioning of the Button
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.CenterHorizontally
         ){
-
-            // Button widget to show Button
-            Button(
-                onClick = {},
-                modifier = Modifier
-                    .padding(10.dp)
-                    .height(80.dp)
-                    .fillMaxWidth()
-            ) {
-
-                // Text widget to show Text
+            Column (
+                verticalArrangement = Arrangement.Bottom,
+                horizontalAlignment = Alignment.Start
+            ){
                 Text(
-                    text = "Get Started Now!",
-                    fontSize = 30.sp,
-                    modifier = Modifier.padding(10.dp)
+                    text = "READY",
+                    fontFamily = FontFamily.Default,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 84.sp,
+                    color = Color.White,
+                    textAlign = TextAlign.Left
+
+
+                )
+
+                Text(
+                    text = "SET",
+                    fontFamily = FontFamily.Default,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 84.sp,
+                    color = Color.White,
+                )
+
+                Text(
+                    text = "VIBE",
+                    fontFamily = FontFamily.Default,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 84.sp,
+                    color = Color.White,
+
+                    )
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Button(
+                onClick = {
+                    // Handle button click
+                    navController.navigate("login")
+
+                },
+                modifier = Modifier
+                    .padding(16.dp)
+                    .clip(RoundedCornerShape(16.dp))
+            ) {
+                Text(
+                    text = "Login",
+                    fontFamily = FontFamily.SansSerif,
+                    fontWeight = FontWeight.W500,
+                    fontSize = 24.sp,
                 )
             }
         }
-    }
-
-/** uncomment this to display another button in centre of the page
-    Column (
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        Button(
-            onClick = {},
-            modifier = Modifier.height(60.dp)
-
-            ) {
-            Text(
-                text = "Button 2",
-                fontSize = 33.sp,
-            )
-        }
-    } */
-
-}
 
 
-@Composable
-fun SplashScreen2(modifier: Modifier = Modifier)
-{
-    Box {
-        Column {
-            Text(
-                text = "Hello"
-            )
-        }
     }
 }
+
 
 
 
@@ -182,8 +320,8 @@ fun SplashScreen2(modifier: Modifier = Modifier)
 fun GreetingPreview() {
     Gdsc_appTheme {
         //Greeting("Android")
-
+        val navController = rememberNavController()
         // Write the name of fun here to preview
-        SplashScreen1()
+        SplashScreen1(navController)
     }
 }

@@ -10,7 +10,7 @@ Welcome to the Android Development with Jetpack Compose Camp! 🌟 This camp is 
 - *Kotlin Programming:* Dive into the fundamentals of Kotlin programming using Kotlin Playground. Learn the syntax and concepts to get started with this powerful language.
 - *Basic UI Development with Jetpack Compose:* Start your journey into UI development with Jetpack Compose. Build simple yet effective user interfaces with declarative syntax.
 
-** Day 2 Recap:**
+**Day 2 Recap:**
 - **UI Enhancement:** Participants explored techniques to improve the user interface of their projects, creating more engaging and user-friendly applications.
 
 - **Firebase Integration:** The day began with a deep dive into connecting projects to Firebase. This integration allowed for streamlined data storage and robust authentication functionalities.
@@ -19,7 +19,7 @@ Welcome to the Android Development with Jetpack Compose Camp! 🌟 This camp is 
 
 - **Navigation:** Essential principles of project navigation were covered to ensure a smooth and intuitive user experience. Understanding how users interact with the application was a key focus.
 
-## Takeaways
+## Takeaways 🌟
 This 2-Day Android Development using Jetpack Compose Camp equipped participants with the necessary skills to create dynamic and well-connected applications. The integration of Firebase for backend support, coupled with enhanced UI and navigation, set the foundation for robust and user-centric projects.
 
 
